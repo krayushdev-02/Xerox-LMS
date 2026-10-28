@@ -32,8 +32,8 @@ CREATE TABLE IF NOT EXISTS public.courses (
   description TEXT,
   thumbnail_url TEXT,
   instructor_id UUID REFERENCES public.profiles(id) ON DELETE SET NULL,
-  category TEXT NOT NULL,
-  difficulty_level TEXT NOT NULL DEFAULT 'Beginner' CHECK (difficulty_level IN ('Beginner', 'Intermediate', 'Advanced', 'All Levels')),
+  category TEXT NOT NULL DEFAULT 'General',
+  difficulty_level TEXT NOT NULL DEFAULT 'Beginner' CHECK (difficulty_level IN ('Beginner', 'Intermediate', 'Advanced', 'All Levels', 'Beginner to Advanced', 'Beginner to Intermediate')),
   language TEXT NOT NULL DEFAULT 'English',
   price NUMERIC(10,2) NOT NULL DEFAULT 0.00,
   is_free BOOLEAN NOT NULL DEFAULT true,
@@ -42,6 +42,30 @@ CREATE TABLE IF NOT EXISTS public.courses (
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+-- Ensure all columns exist in case the table was created previously without them
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS slug TEXT;
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS description TEXT;
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS thumbnail_url TEXT;
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS instructor_id UUID REFERENCES public.profiles(id) ON DELETE SET NULL;
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS category TEXT NOT NULL DEFAULT 'General';
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS difficulty_level TEXT NOT NULL DEFAULT 'Beginner';
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS language TEXT NOT NULL DEFAULT 'English';
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS price NUMERIC(10,2) NOT NULL DEFAULT 0.00;
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS is_free BOOLEAN NOT NULL DEFAULT true;
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS is_published BOOLEAN NOT NULL DEFAULT false;
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS is_approved BOOLEAN NOT NULL DEFAULT false;
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
+ALTER TABLE public.courses ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
+
+-- Safely expand difficulty_level check constraint
+DO $$
+BEGIN
+  ALTER TABLE public.courses DROP CONSTRAINT IF EXISTS courses_difficulty_level_check;
+  ALTER TABLE public.courses ADD CONSTRAINT courses_difficulty_level_check CHECK (difficulty_level IN ('Beginner', 'Intermediate', 'Advanced', 'All Levels', 'Beginner to Advanced', 'Beginner to Intermediate'));
+EXCEPTION
+  WHEN OTHERS THEN NULL;
+END $$;
 
 -- ==============================================================================
 -- 3. COURSE MODULES TABLE
