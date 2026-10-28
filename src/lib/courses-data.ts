@@ -790,7 +790,7 @@ Speed up lookups using B-tree indexes and analyze query execution plans with \`E
     price: 0,
     isFree: true,
     thumbnail:
-      "https://images.unsplash.com/photo-1677442136019-21780efad99a?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&auto=format&fit=crop&q=80",
     duration: "16 Hours",
     lessonsCount: 6,
     rating: 4.9,

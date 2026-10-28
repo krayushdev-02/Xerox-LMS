@@ -229,7 +229,7 @@ export const SAMPLE_COURSES = [
     isFree: true,
     price: 0,
     thumbnail:
-      "https://images.unsplash.com/photo-1677442136019-21780efad99a?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&auto=format&fit=crop&q=80",
     badge: "Trending",
     hasCertificate: true,
     isSample: true,
