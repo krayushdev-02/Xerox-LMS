@@ -25,6 +25,8 @@ import {
   Phone,
   Mail,
   RefreshCw,
+  FileText,
+  ExternalLink,
 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { DETAILED_COURSES, FullCourse } from "@/lib/courses-data";
@@ -487,6 +489,20 @@ export default function AdminDashboard() {
                   <div className="font-bold text-base text-brand-navy-900 dark:text-white">
                     {CONTACT_INFO.email}
                   </div>
+                </div>
+                <div className="p-3 rounded-xl bg-brand-grey-50 dark:bg-brand-navy-950 space-y-1">
+                  <div className="text-[10px] uppercase font-bold text-brand-grey-400">
+                    Google Form Registration & Inquiry
+                  </div>
+                  <a
+                    href={CONTACT_INFO.googleFormUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-xs text-brand-red-500 hover:underline flex items-center gap-1.5 break-all"
+                  >
+                    <span>{CONTACT_INFO.googleFormUrl}</span>
+                    <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                  </a>
                 </div>
                 <div className="p-3 rounded-xl bg-brand-grey-50 dark:bg-brand-navy-950 space-y-1">
                   <div className="text-[10px] uppercase font-bold text-brand-grey-400">

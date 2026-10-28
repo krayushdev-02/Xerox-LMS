@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Phone, Mail, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Phone, Mail, Send, CheckCircle2, AlertCircle, Loader2, FileText, ExternalLink } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
 
 export default function ContactPreview() {
@@ -107,6 +107,27 @@ export default function ContactPreview() {
                     {CONTACT_INFO.email}
                   </div>
                   <div className="text-xs text-brand-grey-500">Tap to compose email</div>
+                </div>
+              </a>
+
+              <a
+                href={CONTACT_INFO.googleFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-brand-navy-900 border border-brand-grey-200 dark:border-brand-navy-800 hover:border-brand-red-500 transition-all shadow-xs group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-red-50 to-brand-red-100 dark:bg-brand-navy-800 text-brand-red-500 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-red-500 group-hover:text-white transition-colors">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-1.5 text-xs text-brand-red-500 font-semibold uppercase tracking-wider">
+                    <span>Google Form</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </div>
+                  <div className="text-base sm:text-lg font-bold text-brand-navy-950 dark:text-white group-hover:text-brand-red-500 transition-colors truncate">
+                    Registration & Inquiry Form
+                  </div>
+                  <div className="text-xs text-brand-grey-500">Tap to fill form (forms.gle)</div>
                 </div>
               </a>
             </div>

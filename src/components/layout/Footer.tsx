@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Phone, Mail, Award, CheckCircle2, ShieldCheck, Heart } from "lucide-react";
+import { Phone, Mail, Award, CheckCircle2, ShieldCheck, Heart, FileText, ExternalLink } from "lucide-react";
 import Logo from "@/components/common/Logo";
 import { CONTACT_INFO, SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 
@@ -159,6 +159,24 @@ export default function Footer() {
                 <div>
                   <div className="text-[11px] text-brand-grey-400 font-medium">Official Email</div>
                   <div className="font-semibold break-all">{CONTACT_INFO.email}</div>
+                </div>
+              </a>
+
+              <a
+                href={CONTACT_INFO.googleFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 p-3 rounded-xl bg-brand-navy-900/60 hover:bg-brand-navy-900 border border-brand-navy-800 transition-all text-white hover:text-brand-red-400 group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-brand-red-500/10 text-brand-red-400 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-red-500 group-hover:text-white transition-colors">
+                  <FileText className="w-4 h-4" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] text-brand-grey-400 font-medium flex items-center gap-1">
+                    <span>Google Form</span>
+                    <ExternalLink className="w-3 h-3 text-brand-red-400" />
+                  </div>
+                  <div className="font-semibold text-xs truncate">Registration & Inquiry</div>
                 </div>
               </a>
             </div>

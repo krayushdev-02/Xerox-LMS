@@ -6,6 +6,7 @@ export const SITE_DESCRIPTION =
 export const CONTACT_INFO = {
   phone: "9341277351",
   email: "ayushk2375@gmail.com",
+  googleFormUrl: "https://forms.gle/SfEn34TgodYFNTRh8",
 };
 
 export const POPULAR_CATEGORIES = [

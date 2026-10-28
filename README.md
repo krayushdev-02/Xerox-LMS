@@ -15,6 +15,7 @@ Xerox LMS is a modern, high-performance, fully responsive e-learning platform bu
 * **Official Contact Information:**
   * **Phone:** `9341277351` (`tel:9341277351`)
   * **Email:** `ayushk2375@gmail.com` (`mailto:ayushk2375@gmail.com`)
+  * **Google Form:** [https://forms.gle/SfEn34TgodYFNTRh8](https://forms.gle/SfEn34TgodYFNTRh8)
 * **Logo:** Official Xerox LMS emblem loaded from `/logo.jpg` with high-resolution responsive vector wrapper.
 
 ---
